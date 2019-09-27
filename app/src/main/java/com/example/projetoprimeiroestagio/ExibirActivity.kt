@@ -47,7 +47,7 @@ class ExibirActivity : AppCompatActivity() {
         }
 
         botaoVoltar.setOnClickListener {
-            var intent = Intent(MainActivity@this, MainActivity::class.java)
+            var intent = Intent(ExibirActivity@this, ListarActivity::class.java)
             startActivity(intent)
         }
 

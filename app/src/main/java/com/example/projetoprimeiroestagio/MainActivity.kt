@@ -3,30 +3,27 @@ package com.example.projetoprimeiroestagio
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.widget.Button
+import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
-    lateinit var listView: ListView
+    lateinit var user: EditText
+    lateinit var password: EditText
+    lateinit var loginButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var produtos = ArrayList<Produto>()
-        produtos.add(Produto("Coxinha", "4.00", "5", "Sabor frango"))
+        user = findViewById(R.id.user)
+        password = findViewById(R.id.password)
+        loginButton = findViewById(R.id.loginButton)
 
-        listView = findViewById(R.id.listView)
-
-        var arrayAdapter = ArrayAdapter<Produto>(MainActivity@ this, android.R.layout.simple_list_item_1, produtos)
-
-        listView.adapter = arrayAdapter
-
-        listView.setOnItemClickListener { parent, view, position, id ->
-            var produto = produtos.get(position)
-            var i = Intent(MainActivity@this, ExibirActivity::class.java)
-            i.putExtra("produto", produto)
-            startActivity(i)
+        loginButton.setOnClickListener{
+            if(user.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()){
+                val intent = Intent(MainActivity@this, ListarActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
