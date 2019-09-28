@@ -1,4 +1,4 @@
-package com.example.projetoprimeiroestagio
+package com.example.projetoprimeiroestagio.entities
 
 import android.os.Parcel
 import android.os.Parcelable
