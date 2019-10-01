@@ -17,6 +17,7 @@
         android:layout_marginRight="40dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/putEmail" />
@@ -30,7 +31,12 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
+        android:background="#C51606"
+        android:lineSpacingExtra="0sp"
         android:text="LOGIN"
+        android:textColor="#F7F8F8"
+        android:textSize="14sp"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -46,6 +52,7 @@
         android:layout_marginRight="40dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/putSenha" />
@@ -56,10 +63,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="20dp"
         android:text="User"
+        app:fontFamily="monospace"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/opa" />
 
     <TextView
         android:id="@+id/putSenha"
@@ -69,7 +77,21 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="15dp"
         android:text="Password"
+        app:fontFamily="monospace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user" />
+
+    <TextView
+        android:id="@+id/opa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:text="OPA!"
+        android:textSize="24sp"
+        app:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

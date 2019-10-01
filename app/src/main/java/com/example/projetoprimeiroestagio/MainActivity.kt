@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit var user: EditText
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
             if(user.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()){
                 val intent = Intent(MainActivity@this, ListarActivity::class.java)
                 startActivity(intent)
+            }else{
+                //mensagem que não é possivel entrar com login vazio
             }
         }
     }
