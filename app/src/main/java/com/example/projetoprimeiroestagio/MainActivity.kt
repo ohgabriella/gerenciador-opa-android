@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //supportActionBar().hide();
+
         user = findViewById(R.id.user)
         password = findViewById(R.id.password)
         loginButton = findViewById(R.id.loginButton)
@@ -30,3 +32,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+

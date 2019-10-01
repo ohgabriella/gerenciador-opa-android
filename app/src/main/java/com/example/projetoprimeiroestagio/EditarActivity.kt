@@ -54,7 +54,7 @@ class EditarActivity : AppCompatActivity() {
             estoque = editarQtd.text.toString()
             descricao = editarDesc.text.toString()
 
-            var produto = Produto (nome, preco, estoque, descricao)
+            produto = Produto (nome, preco, estoque, descricao)
             var i = Intent()
             i.putExtra("produto", produto)
             setResult(Activity.RESULT_OK, i)
