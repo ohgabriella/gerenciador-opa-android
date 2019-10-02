@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.projetoprimeiroestagio.entities.Produto
 
 class CadastrarActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class CadastrarActivity : AppCompatActivity() {
         cadastrarButton = findViewById(R.id.cadastrarButton)
 
         cadastrarButton.setOnClickListener {
-
+        if(inputNome.text.isNotEmpty() && inputPreco.text.isNotEmpty() && inputQtd.text.isNotEmpty() && inputDesc.text.isNotEmpty()){
             var nome = inputNome.text.toString()
             var preco = inputPreco.text.toString()
             var qtd = inputQtd.text.toString()
@@ -42,6 +43,9 @@ class CadastrarActivity : AppCompatActivity() {
 
             setResult(Activity.RESULT_OK, i)
             finish()
+        }else{
+            Toast.makeText(CadastrarActivity@this, "Preencha os campos", Toast.LENGTH_LONG).show()
+        }
 
         }
 

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.example.projetoprimeiroestagio.entities.Produto
 import kotlinx.android.synthetic.main.activity_cadastrar.view.*
 
@@ -21,11 +23,15 @@ class EditarActivity : AppCompatActivity() {
     lateinit var editarQtd: EditText
     lateinit var editarDesc: EditText
     lateinit var confButton: Button
+    lateinit var toolbar: Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         editarNome = findViewById(R.id.editarNome)
         editarPreco = findViewById(R.id.editarPreco)
@@ -49,12 +55,15 @@ class EditarActivity : AppCompatActivity() {
         }
 
         confButton.setOnClickListener{
+
             nome = editarNome.text.toString()
             preco = editarPreco.text.toString()
             estoque = editarQtd.text.toString()
             descricao = editarDesc.text.toString()
 
             produto = Produto (nome, preco, estoque, descricao)
+
+            Toast.makeText(EditarActivity@this, "Produto atualizado com sucesso!", Toast.LENGTH_LONG).show()
 
             var i = Intent()
             i.putExtra("produto", produto)

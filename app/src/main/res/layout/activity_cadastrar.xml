@@ -17,6 +17,7 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nome" />
@@ -32,6 +33,7 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/preco" />
@@ -47,6 +49,7 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/desc" />
@@ -77,6 +80,7 @@
         android:layout_marginRight="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qtd" />

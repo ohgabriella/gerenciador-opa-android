@@ -32,9 +32,10 @@ class ExibirActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exibir)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
 
         textNome = findViewById(R.id.textNome)
         textPreco = findViewById(R.id.textPreco)
@@ -56,16 +57,11 @@ class ExibirActivity : AppCompatActivity() {
             textDescricao.text = "Descrição: ${descricao}"
         }
 
-
         edtButton.setOnClickListener{
             var i = Intent(ExibirActivity@ this, EditarActivity::class.java)
             i.putExtra("produto", produto)
             startActivityForResult(i, REQUEST_CODE)
-
-            //startActivity(i)
-
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -17,7 +17,7 @@ class ListarActivity : AppCompatActivity() {
     lateinit var addButton: FloatingActionButton
     lateinit var listProdutos : ArrayList<Produto>
     lateinit var arrayAdapterProduto: ArrayAdapter<Produto>
-    lateinit var toolbar : Toolbar
+//    lateinit var toolbar : Toolbar
 
     companion object{
         const val REQUEST_CODE = 1
@@ -26,8 +26,8 @@ class ListarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar)
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+//        toolbar = findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
 
         listView = findViewById(R.id.listView)
         addButton = findViewById(R.id.addButton)
@@ -43,6 +43,7 @@ class ListarActivity : AppCompatActivity() {
             var produto = listProdutos[position]
             var i = Intent(ListarActivity@ this, ExibirActivity::class.java)
             i.putExtra("produto", produto)
+            //startActivityForResult(i, REQUEST_CODE)
             startActivity(i)
         }
 
@@ -61,7 +62,7 @@ class ListarActivity : AppCompatActivity() {
                 listProdutos.add(produto)
                 arrayAdapterProduto.notifyDataSetChanged()
             }else{
-                Log.e("MainActivity", "Error ao retornar uma produto")
+                Log.e("MainActivity", "Erro ao retornar uma produto")
             }
         }
     }
