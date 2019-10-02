@@ -55,6 +55,7 @@ class EditarActivity : AppCompatActivity() {
             descricao = editarDesc.text.toString()
 
             produto = Produto (nome, preco, estoque, descricao)
+
             var i = Intent()
             i.putExtra("produto", produto)
             setResult(Activity.RESULT_OK, i)

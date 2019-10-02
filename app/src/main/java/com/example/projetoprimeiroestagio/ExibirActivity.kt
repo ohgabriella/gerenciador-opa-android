@@ -1,10 +1,13 @@
 package com.example.projetoprimeiroestagio
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import com.example.projetoprimeiroestagio.entities.Produto
 
 class ExibirActivity : AppCompatActivity() {
@@ -19,6 +22,7 @@ class ExibirActivity : AppCompatActivity() {
     lateinit var textEstoque : TextView
     lateinit var textDescricao : TextView
     lateinit var edtButton: Button
+    lateinit var toolbar: Toolbar
 
     companion object{
         const val REQUEST_CODE = 1
@@ -27,6 +31,10 @@ class ExibirActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exibir)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
 
         textNome = findViewById(R.id.textNome)
         textPreco = findViewById(R.id.textPreco)
@@ -37,10 +45,10 @@ class ExibirActivity : AppCompatActivity() {
         var produto = intent.getParcelableExtra<Produto>("produto")
 
         if(produto != null) {
-            nome = produto.nome;
-            preco = produto.preco;
-            estoque = produto.qtdEstoque;
-            descricao = produto.descricao;
+            nome = produto.nome
+            preco = produto.preco
+            estoque = produto.qtdEstoque
+            descricao = produto.descricao
 
             textNome.text = "Nome: ${nome}"
             textPreco.text = "Preço: ${preco}"
@@ -55,15 +63,30 @@ class ExibirActivity : AppCompatActivity() {
             startActivityForResult(i, REQUEST_CODE)
 
             //startActivity(i)
-            //Toast.makeText(ExibirActivity@this, produto.toString(), Toast.LENGTH_LONG).show()
+
         }
 
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == ListarActivity.REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            var produto = data?.getParcelableExtra<Produto>("produto")
 
+            if(produto != null){
+                nome = produto.nome
+                preco = produto.preco
+                estoque = produto.qtdEstoque
+                descricao = produto.descricao
 
+                textNome.text = "Nome: ${nome}"
+                textPreco.text = "Preço: ${preco}"
+                textEstoque.text = "Quantidade em estoque: ${estoque}"
+                textDescricao.text = "Descrição: ${descricao}"
+            }else{
+                Log.e("MainActivity", "Error ao retornar uma produto")
+            }
+        }
 
     }
 

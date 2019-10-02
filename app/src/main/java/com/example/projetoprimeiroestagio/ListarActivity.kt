@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.appcompat.widget.Toolbar
 import com.example.projetoprimeiroestagio.entities.Produto
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -16,6 +17,7 @@ class ListarActivity : AppCompatActivity() {
     lateinit var addButton: FloatingActionButton
     lateinit var listProdutos : ArrayList<Produto>
     lateinit var arrayAdapterProduto: ArrayAdapter<Produto>
+    lateinit var toolbar : Toolbar
 
     companion object{
         const val REQUEST_CODE = 1
@@ -23,6 +25,9 @@ class ListarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         listView = findViewById(R.id.listView)
         addButton = findViewById(R.id.addButton)
