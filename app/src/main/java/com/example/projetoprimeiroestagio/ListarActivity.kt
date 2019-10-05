@@ -26,9 +26,6 @@ class ListarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar)
 
-//        toolbar = findViewById(R.id.toolbar)
-//        setSupportActionBar(toolbar)
-
         listView = findViewById(R.id.listView)
         addButton = findViewById(R.id.addButton)
 
@@ -43,8 +40,8 @@ class ListarActivity : AppCompatActivity() {
             var produto = listProdutos[position]
             var i = Intent(ListarActivity@ this, ExibirActivity::class.java)
             i.putExtra("produto", produto)
-            //startActivityForResult(i, REQUEST_CODE)
-            startActivity(i)
+            startActivityForResult(i, REQUEST_CODE)
+            //startActivity(i)
         }
 
         addButton.setOnClickListener {

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.example.projetoprimeiroestagio.entities.Produto
 
 class CadastrarActivity : AppCompatActivity() {
@@ -16,10 +17,17 @@ class CadastrarActivity : AppCompatActivity() {
     lateinit var inputQtd: EditText
     lateinit var inputDesc: EditText
     lateinit var cadastrarButton: Button
+    lateinit var toolbar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         inputNome = findViewById(R.id.inputNome)
         inputPreco = findViewById(R.id.inputPreco)

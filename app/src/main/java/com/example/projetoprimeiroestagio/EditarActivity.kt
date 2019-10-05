@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.projetoprimeiroestagio.entities.Produto
-import kotlinx.android.synthetic.main.activity_cadastrar.view.*
 
 class EditarActivity : AppCompatActivity() {
 
@@ -33,6 +32,10 @@ class EditarActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeButtonEnabled(true)
+
         editarNome = findViewById(R.id.editarNome)
         editarPreco = findViewById(R.id.editarPreco)
         editarQtd = findViewById(R.id.editarQtd)
@@ -43,34 +46,26 @@ class EditarActivity : AppCompatActivity() {
         var produto = intent.getParcelableExtra<Produto>("produto")
 
         if(produto != null) {
-            nome = produto.nome;
-            preco = produto.preco;
-            estoque = produto.qtdEstoque;
-            descricao = produto.descricao;
-
-            editarNome.setText(nome)
-            editarPreco.setText(preco)
-            editarQtd.setText(estoque)
-            editarDesc.setText(descricao)
+            editarNome.setText(produto.nome)
+            editarPreco.setText(produto.preco)
+            editarQtd.setText(produto.qtdEstoque)
+            editarDesc.setText(produto.descricao)
         }
 
         confButton.setOnClickListener{
-
-            nome = editarNome.text.toString()
-            preco = editarPreco.text.toString()
-            estoque = editarQtd.text.toString()
-            descricao = editarDesc.text.toString()
-
-            produto = Produto (nome, preco, estoque, descricao)
-
+            produto = Produto (editarNome.text.toString(), editarPreco.text.toString(), editarQtd.text.toString(), editarDesc.text.toString())
             Toast.makeText(EditarActivity@this, "Produto atualizado com sucesso!", Toast.LENGTH_LONG).show()
-
-            var i = Intent()
+            var i = Intent(EditarActivity@this, ExibirActivity::class.java)
             i.putExtra("produto", produto)
-            setResult(Activity.RESULT_OK, i)
-
+            startActivity(i)
+            finish()
         }
     }
 
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
 
 }
